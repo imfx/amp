@@ -1,0 +1,247 @@
+@charset "utf-8";
+
+/* --------------------------
+	Custom variables
+----------------------------*/
+$text-light:					#949CB1;
+$text-base: 					#676B7F;
+$text-bold:						#454850;
+
+$bg:							#F8F9FD;
+$border-color:					#D3D8DE;
+$border-light-color:			#E5E5EB;
+$card-header-footer-color:		#EFF3FA;
+
+$type-300:						300;
+$type-400:						400;
+$type-500:						500;
+$type-600:						600;
+$type-700:						700;
+
+/* --------------------------
+	Bulma's global variables
+----------------------------*/
+$family-sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif;
+
+// Colors
+$body-background-color: $bg;
+$primary: #4474E4;
+$dark: #1D2C4C;
+
+$radius-large: 3px;
+
+// Text
+$text: $text-base;
+
+$defaul-shadow: none;
+$default-border: 1px solid $border-color;
+
+// Box
+$box-shadow: $defaul-shadow;
+
+// Card
+$card-shadow: $defaul-shadow;
+
+// Form
+// Input
+$input-color: $text-bold;
+$input-shadow: none;
+$input-hover-color: $text-bold;
+$input-hover-border-color: $border-color;
+$input-focus-color: $text-bold;
+$input-border-color: $border-color;
+$input-focus-box-shadow-size: 0;
+$input-focus-box-shadow-color: transparent;
+$input-focus-border-color: $primary;
+
+@import "bulma";
+@import "mixins";
+@import "space";
+
+html, body {
+	letter-spacing: 0;
+	-webkit-font-smoothing: antialiased;
+	@extend .is-fullheight;
+}
+
+strong {
+	font-weight: $type-600;
+	color: $text-bold;
+}
+
+.is-main-content {
+	padding: 2.3rem;
+}
+
+.menu {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+
+	#wrapper {
+	  flex: 1;
+	}
+}
+
+.is-sidebar-menu {
+	@extend .is-fullheight;
+	@extend .is-hidden-mobile;
+
+	padding: 2.3rem;
+	flex: 0 0 250px;
+	border-right: $default-border;
+	display: flex;
+	overflow-y: auto;
+	flex-direction: column;
+
+	.menu-list {
+		li ul {
+			margin: 0.65rem;
+			padding-left: .45rem;
+		}
+
+		a {
+			display: flex;
+			font-size: 0.9rem;
+			font-weight: $type-500;
+
+			.feather {
+				@extend .mr-3;
+				position: relative;
+				top: 0;
+			}
+
+			&.is-active {
+				background: none;
+				color: $primary;
+				font-weight: $type-600;
+			}
+		}
+
+		& > li > a {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		& span {
+			align-self: flex-start;
+		}
+	}
+
+	.menu-list-icon {
+		@extend .mr-3;
+	}
+}
+
+.menu-list {
+	padding-bottom: 1rem;
+}
+
+.menu-label,
+.menu-label:not(:last-child) {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+	letter-spacing: 0.05em;
+	font-weight: $type-700; 
+}
+
+.navbar-custom {
+	padding-left: 2.3rem;
+	padding-right: 1.3rem;
+}
+
+.navbar-brand {
+	padding: 0;
+	margin: 0;
+	.navbar-item {
+		margin: 0;
+		flex: 0 0 250px;
+	}
+}
+
+.subtitle,
+.title {
+	color: $text-bold;
+}
+
+.subtitle {
+	font-weight: $type-300;
+	font-size: 1.15rem;
+}
+
+.card,
+.box {
+	border: $default-border;
+}
+
+$input-padding-vertical: calc(1.275em - #{$control-border-width});
+$input-padding-horizontal: calc(.85em - #{$control-border-width});
+$input-icon-size: 2.55em;
+
+.control {
+	.input {
+		@include transition(all 250ms ease);
+		@include border-radius($radius-large);
+
+		padding-bottom: $input-padding-vertical;
+		padding-left: $input-padding-horizontal;
+		padding-right: $input-padding-horizontal;
+		padding-top: $input-padding-vertical;
+
+		&:focus {
+			box-shadow: 0 0 0 1px $primary;
+		}
+
+		// Colors
+		@each $name, $pair in $colors {
+			$color: nth($pair, 1);
+			&.is-#{$name} {
+				&:focus,
+				&.is-focused,
+				&:active,
+				&.is-active {
+					box-shadow: 0 0 0 1px $color;
+				}
+			}
+		}
+	}
+
+	&.has-icons-left,
+	&.has-icons-right {
+		.icon {
+			width: $input-icon-size;
+			height: $input-icon-size;
+		}
+
+		.input,
+		.select select {
+			&:focus,
+			&.is-focused,
+			&:active,
+			&.is-active {
+				& ~ .icon {
+					color: $primary;
+				}
+			}
+			@each $name, $pair in $colors {
+				$color: nth($pair, 1);
+				&.is-#{$name} {
+					&:focus,
+					&.is-focused,
+					&:active,
+					&.is-active {
+						& ~ .icon {
+							color: $color;
+						}
+						box-shadow: 0 0 0 1px $color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.label {
+	font-weight: $type-500;
+	color: $text-bold;
+}

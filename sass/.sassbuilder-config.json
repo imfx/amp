@@ -1,0 +1,11 @@
+{
+	"project_path": "/sass/",
+	"output_path": "/../css/",
+	"options": {
+		"cache":         false,
+		"debug":         false,
+		"line-comments": true,
+		"line-numbers":  true,
+		"style":         "compressed"
+	}
+}
