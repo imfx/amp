@@ -85,6 +85,12 @@ $menu-item-hover-background-color: transparent;
 @import "mixins";
 @import "space";
 
+a {
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 h1, .h1 { font-size: $h1-font-size; }
 h2, .h2 { font-size: $h2-font-size; }
 h3, .h3 { font-size: $h3-font-size; }
@@ -223,6 +229,8 @@ strong {
 	padding: $box-card-padding;	
 }
 
+$select-padding-vertical: calc(0.625em - #{$control-border-width});
+$select-padding-horizontal: calc(.85em - #{$control-border-width});
 $input-padding-vertical: calc(1.375em - #{$control-border-width});
 $input-padding-horizontal: calc(.85em - #{$control-border-width});
 $input-icon-size: 2.83em;
@@ -236,6 +244,31 @@ $input-icon-size: 2.83em;
 		padding-left: $input-padding-horizontal;
 		padding-right: $input-padding-horizontal;
 		padding-top: $input-padding-vertical;
+
+		&:focus,
+		&.is-focused,
+		&:active,
+		&.is-active {
+			box-shadow: 0 0 0 1px $primary;
+		}
+
+		// Colors
+		@each $name, $pair in $colors {
+			$color: nth($pair, 1);
+			&.is-#{$name} {
+				&:focus,
+				&.is-focused,
+				&:active,
+				&.is-active {
+					box-shadow: 0 0 0 1px $color;
+				}
+			}
+		}
+	}
+
+	.textarea {
+		@include transition(all 250ms ease);
+		@include border-radius($radius-large);
 
 		&:focus,
 		&.is-focused,
@@ -291,6 +324,20 @@ $input-icon-size: 2.83em;
 				}
 			}
 		}
+	}
+}
+
+%arrow {
+  margin-top: -0.1em;
+}
+
+.select {
+	select {
+		height: 2.83em;
+		padding-top: $select-padding-vertical;
+		padding-bottom: $select-padding-vertical;
+		padding-left: $select-padding-horizontal;
+		padding-right: $select-padding-horizontal;
 	}
 }
 
