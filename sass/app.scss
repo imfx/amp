@@ -235,60 +235,44 @@ $input-padding-vertical: calc(1.375em - #{$control-border-width});
 $input-padding-horizontal: calc(.85em - #{$control-border-width});
 $input-icon-size: 2.83em;
 
+%borderable {
+	&:focus,
+	&.is-focused,
+	&:active,
+	&.is-active {
+		box-shadow: 0 0 0 1px $primary;
+	}
+
+	// Colors
+	@each $name, $pair in $colors {
+		$color: nth($pair, 1);
+		&.is-#{$name} {
+			&:focus,
+			&.is-focused,
+			&:active,
+			&.is-active {
+				box-shadow: 0 0 0 1px $color;
+			}
+		}
+	}
+}
+
 .control {
 	.input {
 		@include transition(all 250ms ease);
 		@include border-radius($radius-large);
+		@extend %borderable;
 
 		padding-bottom: $input-padding-vertical;
 		padding-left: $input-padding-horizontal;
 		padding-right: $input-padding-horizontal;
 		padding-top: $input-padding-vertical;
-
-		&:focus,
-		&.is-focused,
-		&:active,
-		&.is-active {
-			box-shadow: 0 0 0 1px $primary;
-		}
-
-		// Colors
-		@each $name, $pair in $colors {
-			$color: nth($pair, 1);
-			&.is-#{$name} {
-				&:focus,
-				&.is-focused,
-				&:active,
-				&.is-active {
-					box-shadow: 0 0 0 1px $color;
-				}
-			}
-		}
 	}
 
 	.textarea {
 		@include transition(all 250ms ease);
 		@include border-radius($radius-large);
-
-		&:focus,
-		&.is-focused,
-		&:active,
-		&.is-active {
-			box-shadow: 0 0 0 1px $primary;
-		}
-
-		// Colors
-		@each $name, $pair in $colors {
-			$color: nth($pair, 1);
-			&.is-#{$name} {
-				&:focus,
-				&.is-focused,
-				&:active,
-				&.is-active {
-					box-shadow: 0 0 0 1px $color;
-				}
-			}
-		}
+		@extend %borderable;
 	}
 
 	&.has-icons-left,
@@ -298,32 +282,10 @@ $input-icon-size: 2.83em;
 			width: 2.56em;
 			height: $input-icon-size;
 		}
+	}
 
-		.input,
-		.select select {
-			&:focus,
-			&.is-focused,
-			&:active,
-			&.is-active {
-				& ~ .icon {
-					color: $primary;
-				}
-			}
-			@each $name, $pair in $colors {
-				$color: nth($pair, 1);
-				&.is-#{$name} {
-					&:focus,
-					&.is-focused,
-					&:active,
-					&.is-active {
-						& ~ .icon {
-							color: $color;
-						}
-						box-shadow: 0 0 0 1px $color;
-					}
-				}
-			}
-		}
+	.select select {
+		@extend %borderable;
 	}
 }
 
