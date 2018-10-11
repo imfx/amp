@@ -12,10 +12,10 @@
 		<script src="https://unpkg.com/feather-icons"></script>
 	</head>
 	<body>
-		<nav class="navbar navbar-custom is-dark">
+		<nav class="navbar is-dark">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="http://bulma.io">
-					<h1 class="subtitle has-text-white">Constellation</h1>
+					<h1 class="subtitle has-text-white">AMP</h1>
 				</a>
 				<div class="navbar-burger burger" data-target="navMenubd-example">
 					<span></span>
