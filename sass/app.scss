@@ -279,45 +279,38 @@ $input-icon-size: 2.83em;
 		}
 	}
 	
-	&:focus,
-	&.is-focused,
-	&:active,
-	&.is-active {
-		&.has-icons-left,
-		&.has-icons-right {
-			.icon {
-			box-shadow: 0 0 0 1px $primary;
-			}
-		}
-	}
 
-	// Colors
-	@each $name, $pair in $colors {
-		$color: nth($pair, 1);
-		&.is-#{$name} {
+	&.has-icons-left,
+	&.has-icons-right {
+		.icon {
+			@include transition(color 250ms ease);
+			width: 2.56em;
+			height: $input-icon-size;
+		}
+
+		.input,
+		.select select {
 			&:focus,
 			&.is-focused,
 			&:active,
 			&.is-active {
-				&.has-icons-left,
-				&.has-icons-right {
-					.icon {
-					box-shadow: 0 0 0 1px $color;
-					}
+				& ~ .icon {
+					color: $primary;
 				}
 			}
-		}
-	}
-
-	// Colors
-	@each $name, $pair in $colors {
-		$color: nth($pair, 1);
-		&.is-#{$name} {
-			&:focus,
-			&.is-focused,
-			&:active,
-			&.is-active {
-				box-shadow: 0 0 0 1px $color;
+			@each $name, $pair in $colors {
+				$color: nth($pair, 1);
+				&.is-#{$name} {
+					&:focus,
+					&.is-focused,
+					&:active,
+					&.is-active {
+						& ~ .icon {
+							color: $color;
+						}
+						box-shadow: 0 0 0 1px $color;
+					}
+				}
 			}
 		}
 	}
