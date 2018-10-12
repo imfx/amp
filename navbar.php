@@ -1,7 +1,7 @@
-<nav class="navbar is-dark">
+<nav class="navbar">
 	<div class="navbar-brand">
-		<a class="navbar-item" href="http://bulma.io">
-			<h1 class="subtitle has-text-white">AMP</h1>
+		<a class="navbar-item has-text-centered" href="http://bulma.io">
+			<h1 class="subtitle">AMP</h1>
 		</a>
 		<div class="navbar-burger burger" data-target="navMenubd-example">
 			<span></span>

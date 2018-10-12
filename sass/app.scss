@@ -24,7 +24,7 @@ $type-700:						700;
 $family-sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif;
 
 // Colors
-$body-background-color: $bg;
+$body-background-color: white;
 $primary: #4474E4;
 $dark: #1D2C4C;
 
@@ -84,12 +84,6 @@ $menu-item-hover-background-color: transparent;
 @import "bulma";
 @import "mixins";
 @import "space";
-
-a {
-	&:hover {
-		text-decoration: underline;
-	}
-}
 
 h1, .h1 { font-size: $h1-font-size; }
 h2, .h2 { font-size: $h2-font-size; }
@@ -279,18 +273,58 @@ $input-icon-size: 2.83em;
 	&.has-icons-right {
 		.icon {
 			@include transition(color 250ms ease);
+
 			width: 2.56em;
 			height: $input-icon-size;
+		}
+	}
+	
+	&:focus,
+	&.is-focused,
+	&:active,
+	&.is-active {
+		&.has-icons-left,
+		&.has-icons-right {
+			.icon {
+			box-shadow: 0 0 0 1px $primary;
+			}
+		}
+	}
+
+	// Colors
+	@each $name, $pair in $colors {
+		$color: nth($pair, 1);
+		&.is-#{$name} {
+			&:focus,
+			&.is-focused,
+			&:active,
+			&.is-active {
+				&.has-icons-left,
+				&.has-icons-right {
+					.icon {
+					box-shadow: 0 0 0 1px $color;
+					}
+				}
+			}
+		}
+	}
+
+	// Colors
+	@each $name, $pair in $colors {
+		$color: nth($pair, 1);
+		&.is-#{$name} {
+			&:focus,
+			&.is-focused,
+			&:active,
+			&.is-active {
+				box-shadow: 0 0 0 1px $color;
+			}
 		}
 	}
 
 	.select select {
 		@extend %borderable;
 	}
-}
-
-%arrow {
-  margin-top: -0.1em;
 }
 
 .select {
@@ -300,6 +334,10 @@ $input-icon-size: 2.83em;
 		padding-bottom: $select-padding-vertical;
 		padding-left: $select-padding-horizontal;
 		padding-right: $select-padding-horizontal;
+	}
+
+	&:not(.is-multiple):not(.is-loading)::after {
+  		margin-top: -0.1em;
 	}
 }
 
