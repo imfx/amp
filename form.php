@@ -54,26 +54,107 @@
 					<textarea class="textarea" placeholder="Textarea"></textarea>
 				</div>
 			</div>
+
 			<div class="field">
 				<div class="control">
-					<label class="checkbox">
-						<input type="checkbox">
-						I agree to the <a href="#">terms and conditions</a>
-					</label>
+					
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span>I agree to the <a href="#">terms and conditions</a></span>
+						</label>
+					</div>
 				</div>
+				<!-- END control -->
 			</div>
+			<!-- END field -->
+
 			<div class="field">
 				<div class="control">
-					<label class="radio">
-						<input type="radio" name="question">
-						Yes
-					</label>
-					<label class="radio">
-						<input type="radio" name="question">
-						No
-					</label>
+					<label class="label" for="exampleInputEmail1">Input Checkbox</label>
+
+					<!-- Default checkbox -->
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span>Option 1</span>
+						</label>
+					</div>
+					
+					<!-- Default checkbox -->
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span>Option 2</span>
+						</label>
+					</div>
+					
+					<!-- Default checkbox -->
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span>Option 3</span>
+						</label>
+					</div>
+
+					<label for="exampleInputEmail1">Checked</label>
+
+					<!-- Checked checkbox -->
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" checked>
+							<span>Option 4 is checked by default</span>
+						</label>
+					</div>
+
+					
+					<label for="exampleInputEmail1">Disabled</label>
+					<!-- Disabled checkbox -->
+					<div class="checkbox disabled">
+						<label>
+							<input type="checkbox" value="" disabled>
+							<span>Option 5 is disabled</span>
+						</label>
+					</div>
+
+					<label class="label" for="exampleInputEmail1">Radio</label>
+
+					<div class="radio">
+						<label>
+							<input type="radio" name="radio">
+							<span>Option 1</span>
+						</label>
+					</div>
+					<!-- END radio -->
+
+					<div class="radio">
+						<label>
+							<input type="radio" name="radio">
+							<span>Option 2</span>
+						</label>
+					</div>
+					<!-- END radio -->
+
+					<div class="radio">
+						<label>
+							<input type="radio" name="radio" disabled>
+							<span>Option Disabled</span>
+						</label>
+					</div>
+					<!-- END radio -->
+
+					<div class="radio">
+						<label>
+							<input type="radio" name="radio">
+							<span>Option 3</span>
+						</label>
+					</div>
+					<!-- END radio -->
 				</div>
+				<!-- END control -->
 			</div>
+			<!-- END field -->
+
 			<div class="field is-grouped">
 				<div class="control">
 					<button class="button is-link">Submit</button>
