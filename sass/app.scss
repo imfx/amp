@@ -509,6 +509,45 @@ $checkbox-radio-size: 1.43rem;
 	}
 }
 
+.tabs {
+	a {
+		position: relative;
+		display: block;
+		border: none;
+		padding: .8rem 1.5rem;
+		color: $text-base;
+
+		&::hover {
+			color: $text-base;
+		}
+
+		&::after {
+			position: absolute;
+			display: block;
+			margin: auto;
+			left: 0;
+			right: 0;
+			content: '';
+			width: 0;
+			height: 2px;
+			background-color: $primary;
+			bottom: 0;
+			transition: width 250ms ease 0s;
+		}
+
+		&:hover::after {
+			width: 100%;
+		}
+	}
+
+	li.is-active a {
+		color: $primary;
+
+		&::after {
+			width: 100%;
+		}
+	}
+}
 
 // Animations
 @keyframes animate-flyout {
