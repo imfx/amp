@@ -223,16 +223,26 @@ strong {
 	@include border-radius($radius-large);
 	border: $default-border;
 
-	top: 104%;
 	animation-name: animate-flyout;
 	animation-duration: 0.2s;
 
 	.navbar-item {
-      padding: 0.375rem 1.5rem;
+		padding: 0.375rem 1.5rem;
+		flex-wrap: wrap;
+
+		span {
+			flex-basis: 100%;
+		}
+
+		span.helper {
+			color: $text-base;
+			font-size: .85rem;
+			margin-top: 3px;
+		}
 	}
-    a.navbar-item {
-      padding-right: 3rem;
-    }
+	a.navbar-item {
+		padding-right: 3rem;
+	}
 }
 
 .subtitle,
