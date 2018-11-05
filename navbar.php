@@ -1,7 +1,7 @@
-<nav class="navbar">
+<nav class="navbar is-primary">
 	<div class="navbar-brand">
 		<a class="navbar-item has-text-centered">
-			<h1 class="subtitle">AMP</h1>
+			<h1 class="subtitle"><strong class="has-text-white">AMP</strong></h1>
 		</a>
 		<div class="navbar-burger burger" data-target="navMenubd-example">
 			<span></span>

@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "type";
 
 /* --------------------------
 	Custom variables
@@ -8,20 +9,14 @@ $text-base: 					#676B7F;
 $text-bold:						#454850;
 
 $bg:							#F8F9FD;
-$border-color:					#D3D8DE;
+$border-color:					#E5E6EB;
 $border-light-color:			#E5E5EB;
 $card-header-footer-color:		#EFF3FA;
-
-$type-300:						300;
-$type-400:						400;
-$type-500:						500;
-$type-600:						600;
-$type-700:						700;
 
 /* --------------------------
 	Bulma's global variables
 ----------------------------*/
-$family-sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif;
+$family-sans-serif: "FaktProSoft", system-ui, -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif;
 
 // Colors
 $body-background-color: $bg;
@@ -41,15 +36,16 @@ $h4-font-size:                $font-size-base * 1.5 !default;
 $h5-font-size:                $font-size-base * 1.25 !default;
 $h6-font-size:                $font-size-base !default;
 
-$defaul-shadow: none;
+// $defaul-shadow: none;
+$default-shadow: 0 0 0 1px rgba(63,63,68,0.03), 0 1px 3px 0 rgba(63,63,68,0.05);
 $default-border: 1px solid $border-color;
 
 // Box
-$box-shadow: $defaul-shadow;
+$box-shadow: $default-shadow;
 $box-card-padding: 1.5rem;
 
 // Card
-$card-shadow: $defaul-shadow;
+$card-shadow: $default-shadow;
 
 // Form
 // Input
@@ -118,7 +114,7 @@ html, body {
 }
 
 strong {
-	font-weight: $type-600;
+	font-weight: $type-500;
 	color: $text-bold;
 }
 
@@ -140,6 +136,7 @@ strong {
 	@extend .is-fullheight;
 	@extend .is-hidden-mobile;
 
+	background-color: white;
 	padding: 2.3rem;
 	flex: 0 0 250px;
 	border-right: $default-border;
@@ -167,7 +164,7 @@ strong {
 			&.is-active {
 				background: none;
 				color: $primary;
-				font-weight: $type-600;
+				font-weight: $type-500;
 			}
 		}
 
@@ -195,7 +192,20 @@ strong {
 	margin-top: .5rem;
 	margin-bottom: .5rem;
 	letter-spacing: 0.05em;
-	font-weight: $type-700; 
+	font-weight: $type-500; 
+}
+
+.navbar {
+	border-bottom: $default-border;
+}
+
+.navbar-item,
+.navbar-link {
+	padding: 1rem .9rem;
+}
+
+.navbar-link {
+	padding-right: 3rem;
 }
 
 .navbar-brand {
@@ -205,6 +215,16 @@ strong {
 		margin: 0;
 		flex: 0 0 250px;
 	}
+}
+
+.navbar-dropdown {
+	@include box-shadow(none);
+	@include border-radius($radius-large);
+	border: $default-border;
+
+	top: 104%;
+	animation-name: animate-flyout;
+	animation-duration: 0.2s;
 }
 
 .subtitle,
@@ -219,6 +239,10 @@ strong {
 .subtitle {
 	font-weight: $type-300;
 	font-size: 1.15rem;
+
+	strong {
+		font-weight: $type-500;
+	}
 }
 
 .card-content,
@@ -345,18 +369,6 @@ $input-icon-size: 2.83em;
 
 .button {
 	height: 2.75em
-}
-
-@font-face {
-	font-family: 'fontello';
-	src: url('../fonts/fontello.eot?74373698');
-	src: url('../fonts/fontello.eot?74373698#iefix') format('embedded-opentype'),
-		url('../fonts/fontello.woff2?74373698') format('woff2'),
-		url('../fonts/fontello.woff?74373698') format('woff'),
-		url('../fonts/fontello.ttf?74373698') format('truetype'),
-		url('../fonts/fontello.svg?74373698#fontello') format('svg');
-	font-weight: normal;
-	font-style: normal;
 }
 
 // Checkboxes
@@ -486,5 +498,18 @@ $checkbox-radio-size: 1.43rem;
 				line-height: $checkbox-radio-size;
 			}
 		}
+	}
+}
+
+
+// Animations
+@keyframes animate-flyout {
+	0% {
+		@include translateY(-5px);
+		@include opacity(0);
+	}
+	100% {
+		@include translateY(0);
+		@include opacity(1);
 	}
 }
