@@ -64,6 +64,7 @@ $button-padding-vertical: 0.5em;
 
 // Navbar
 $navbar-dropdown-item-hover-background-color: transparent;
+$navbar-dropdown-item-hover-color: $primary;
 
 // Form
 $help-size: 0.85rem;
@@ -225,6 +226,13 @@ strong {
 	top: 104%;
 	animation-name: animate-flyout;
 	animation-duration: 0.2s;
+
+	.navbar-item {
+      padding: 0.375rem 1.5rem;
+	}
+    a.navbar-item {
+      padding-right: 3rem;
+    }
 }
 
 .subtitle,

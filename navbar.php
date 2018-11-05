@@ -21,8 +21,19 @@
 					<span>User</span>
 				</a>
 				<div class="navbar-dropdown is-right is-active">
+					<a class="navbar-item">
+						<span>Notifications</span>
+					</a>
+					<a class="navbar-item">
+						<span>Settings</span>
+					</a>
+					<a class="navbar-item">
+						<span>Configuration</span>
+					</a>
+
+      				<hr class="navbar-divider">
+
 					<a class="navbar-item has-text-danger">
-						<i class="mr-4" data-feather="log-out"></i>
 						<span>Logout</span>
 					</a>
 				</div>

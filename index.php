@@ -13,6 +13,7 @@
 	</head>
 	<body>
 		<?php include('navbar.php') ?>
+
 		<?php include('form.php') ?>
 		<?php // include('login.php') ?>
 		
